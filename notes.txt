@@ -1,0 +1,31 @@
+npm create-react-app 
+
+npm i react-router-dom , install react router
+
+set BrowserRouter at index.js entry file
+
+import {Route, Routes} from "react-router-dom"; on app.js
+
+
+PRODUCTS 
+INSERT INTO products (name, description, price, stock_quantity, image_url, created_at, updated_at) VALUES 
+('White Shirt', 'Classic white shirt made of 100% cotton.', 29.99, 150, 'url_white_shirt', '2023-09-01', '2023-09-01'),
+('Blue Denim Shirt', 'Stylish blue denim shirt.', 34.99, 100, 'url_blue_denim_shirt', '2023-09-02', '2023-09-02'),
+('Striped Shirt', 'Black and white striped shirt.', 24.99, 120, 'url_striped_shirt', '2023-09-03', '2023-09-03'),
+('Formal Shirt', 'White formal shirt, perfect for business meetings.', 39.99, 75, 'url_formal_shirt', '2023-09-04', '2023-09-04'),
+('Casual Shirt', 'Light blue casual shirt for everyday wear.', 19.99, 90, 'url_casual_shirt', '2023-09-05', '2023-09-05'),
+('Black Hat', 'Classic black hat.', 14.99, 200, 'url_black_hat', '2023-09-06', '2023-09-06'),
+('Red Baseball Hat', 'Red baseball cap with adjustable strap.', 12.99, 150, 'url_red_baseball_hat', '2023-09-07', '2023-09-07'),
+('Straw Hat', 'Summer straw hat.', 9.99, 80, 'url_straw_hat', '2023-09-08', '2023-09-08'),
+('Winter Hat', 'Warm winter hat in grey.', 19.99, 60, 'url_winter_hat', '2023-09-09', '2023-09-09'),
+('Panama Hat', 'Elegant Panama hat in white.', 29.99, 70, 'url_panama_hat', '2023-09-10', '2023-09-10'),
+('Blue Jeans', 'Classic blue jeans.', 49.99, 140, 'url_blue_jeans', '2023-09-11', '2023-09-11'),
+('Black Trousers', 'Formal black trousers.', 39.99, 100, 'url_black_trousers', '2023-09-12', '2023-09-12'),
+('Shorts', 'Casual summer shorts in beige.', 29.99, 120, 'url_shorts', '2023-09-13', '2023-09-13'),
+('Khaki Pants', 'Stylish khaki pants for everyday wear.', 44.99, 110, 'url_khaki_pants', '2023-09-14', '2023-09-14'),
+('Chinos', 'Green chinos for a trendy look.', 54.99, 90, 'url_chinos', '2023-09-15', '2023-09-15'),
+('Yoga Pants', 'Comfortable black yoga pants.', 34.99, 180, 'url_yoga_pants', '2023-09-16', '2023-09-16'),
+('Cargo Pants', 'Brown cargo pants with multiple pockets.', 59.99, 85, 'url_cargo_pants', '2023-09-17', '2023-09-17'),
+('Bermuda Shorts', 'Short bermuda in navy blue.', 24.99, 100, 'url_bermuda_shorts', '2023-09-18', '2023-09-18'),
+('Beach Hat', 'Lightweight beach hat.', 10.99, 190, 'url_beach_hat', '2023-09-19', '2023-09-19'),
+('Dress Shirt', 'Elegant dress shirt in lavender.', 44.99, 60, 'url_dress_shirt', '2023-09-20', '2023-09-20');
