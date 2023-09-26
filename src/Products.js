@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-
+import './Products.css'
 const Products = () => {
   const [products, setProducts] = useState([]);
   const [quantities, setQuantities] = useState({});
@@ -9,7 +9,7 @@ const Products = () => {
       const response = await fetch('http://localhost:3001/products');
       const data = await response.json();
       setProducts(data);
-
+      console.log(data);
       const initialQuantities = {};
       data.forEach(product => {
         initialQuantities[product.id] = 1;
@@ -48,6 +48,7 @@ const Products = () => {
       const data = await response.json();
       if (data.message) {
         alert(data.message);
+       
       }
     } catch (error) {
       console.error('Error adding item to cart:', error);
@@ -57,40 +58,47 @@ const Products = () => {
 
 
 
-  const gridStyle = {
-    display: 'grid',
-    gridTemplateColumns: 'repeat(3, 1fr)',
-    gap: '30px',
-    margin: '10px'
-  };
+  // const gridStyle = {
+  //   display: 'grid',
+  //   gridTemplateColumns: 'repeat(3, 1fr)',
+  //   gap: '30px',
+  //   margin: '10px'
+  // };
 
-  const cardStyle = {
-    border: '1px solid black',
-    padding: '16px',
-    textAlign: 'center',
-    margin: '20px'
-  };
+  // const cardStyle = {
+  //   border: '1px solid black',
+  //   padding: '16px',
+  //   textAlign: 'center',
+  //   margin: '20px'
+  // };
 
   return (
     <div>
-      <h1>We sell these products:</h1>
-      <div style={gridStyle}>
+     <h1>Welcome to NextBuy!</h1>
+<p className='intro'>Discover handpicked, high-quality products crafted with precision and love. Dive into a world where quality meets affordability.</p>
+
+      <div className="grid">
         {products.map(product => (
-          <div key={product.id} style={cardStyle}>
+          <div key={product.id} className="card">
+           <img src={product.image_url} alt={product.name} width="70%" height="200px"/>
             <h2>{product.name}</h2>
-            <p>{product.description}</p>
-            <p>Price: ${product.price}</p>
+            <p className='description'>{product.description}</p>
+            <p className='price'>${product.price}</p>
             <p>Stock: {product.stock_quantity}</p>
-            <p>{product.id}</p>
+            {/* <p>{product.id}</p> */}
+            <div>
             <button onClick={() => handleQuantityChange(product.id, -1)}>-</button>
             {quantities[product.id]}
             <button onClick={() => handleQuantityChange(product.id, 1)}>+</button>
             <button onClick={() => addToCart(product.id)}>Add to Cart</button>
+            </div>
           </div>
         ))}
       </div>
+      
     </div>
-  );
+);
+ 
 };
 
 export default Products;

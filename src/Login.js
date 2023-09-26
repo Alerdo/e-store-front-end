@@ -24,6 +24,7 @@ const Login = ({setLogIn}) => {
   
       if (data.success) {
         setLogIn(true);
+        localStorage.setItem('isLoggedIn', true );
       } else {
         alert(data.message || 'Failed to login');
       }

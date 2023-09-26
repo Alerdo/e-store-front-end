@@ -1,26 +1,63 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import './Register.css';
 
 const Register = () => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [name, setName] = useState('');
-  const [address, setAddress] = useState('');
+  const [formData, setFormData] = useState({
+    email: '',
+    password: '',
+    name: '',
+    address: ''
+  });
+  const navigate = useNavigate();
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({
+      ...formData,
+      [name]: value
+    });
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
     try {
-      const response = await fetch('http://localhost:3001/authentication/register', {
+      let response = await fetch('http://localhost:3001/authentication/register', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ email, password, name, address }),
+        credentials: 'include', // Include this line
+        body: JSON.stringify(formData),
       });
-      const data = await response.json();
-      if (data.user) {
-        alert('Successfully registered!');
-        // Navigate to home or login
+
+      let data = await response.json();
+
+      if (data && data.success) {
+        alert('Registration successful!');
+
+        // Automatically login after a successful registration
+        response = await fetch('http://localhost:3001/authentication/login', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          credentials: 'include', // Include this line
+          body: JSON.stringify({
+            email: formData.email,
+            password: formData.password,
+          }),
+        });
+
+        data = await response.json();
+
+        if (data && data.success) {
+          localStorage.setItem('isLoggedIn', 'true');
+          navigate('/products');
+        } else {
+          alert(data.message || 'Failed to login after registration.');
+        }
+        
       } else {
         alert(data.message || 'Failed to register');
       }
@@ -30,21 +67,21 @@ const Register = () => {
   };
 
   return (
-    <div>
+    <div className="register-container">
       <h1>Register</h1>
-      <form onSubmit={handleSubmit}>
-        <label>Email: </label>
-        <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} required />
-        <br />
-        <label>Password: </label>
-        <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} required />
-        <br />
-        <label>Name: </label>
-        <input type="text" value={name} onChange={(e) => setName(e.target.value)} required />
-        <br />
-        <label>Address: </label>
-        <input type="text" value={address} onChange={(e) => setAddress(e.target.value)} required />
-        <br />
+      <form className="register-form" onSubmit={handleSubmit}>
+        <label>Email:</label>
+        <input type="email" name="email" value={formData.email} onChange={handleChange} required />
+        
+        <label>Password:</label>
+        <input type="password" name="password" value={formData.password} onChange={handleChange} required />
+
+        <label>Full Name:</label>
+        <input type="text" name="name" value={formData.name} onChange={handleChange} required />
+        
+        <label>Address:</label>
+        <input type="text" name="address" value={formData.address} onChange={handleChange} required />
+        
         <button type="submit">Register</button>
       </form>
     </div>

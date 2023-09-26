@@ -1,13 +1,20 @@
-
+import React, { useState } from 'react';
+import { Route, Routes, NavLink, useNavigate } from "react-router-dom";
+// import { Elements } from "@stripe/react-stripe-js";
+// import { loadStripe } from "@stripe/stripe-js";
 import Products from './Products';
-import {Route, Routes, Link, useNavigate} from "react-router-dom";
-import "./App.css";
 import Login from './Login';
 import CartItems from './CartItems';
-import Logout from './Logout';
-import { useState } from 'react';
 import AboutUs from './AboutUs';
+import Checkout from './Checkout';
+import Profile from './Profile';
+import Register from './Register';
+import "./App.css";
 
+// Remember to use your own Stripe public key here
+// const stripePromise = loadStripe("your-public-key-here");
+
+// const [cartNr, setCart] = useState(0);
 
 function App() {
   const [login, setLogIn] = useState(false);
@@ -23,36 +30,46 @@ function App() {
   };
   return (
     <>
+    {/* // <Elements stripe={stripePromise}> */}
     <header>
     <nav>
       <ul >
-      <li><Link to="/">Login</Link></li>
-
-        <li><Link to="/products">Home</Link></li>
-        <li><Link to="/about-us">About Us</Link></li>
-        <li><Link to="/cart">Cart</Link></li>
-        <li><Link to="/profile">Profile</Link></li>
-        <li><Link to="/logout">Logout</Link></li>
+      <nav>
+  <ul>
+   
+    <li><NavLink to="/" activeclassname="active-link">Products</NavLink></li>
+    <li><NavLink to="/about-us" activeclassname="active-link">About Us</NavLink></li>
+    <li><NavLink to="/cart" activeclassname="active-link">Cart</NavLink></li>
+    <li><NavLink to="/checkout" activeclassname="active-link">Checkout</NavLink></li>
+    <li><NavLink to="/profile" activeclassname="active-link">Profile</NavLink></li>
+    <li><NavLink to="/login" activeclassname="active-link">Login</NavLink></li>
+    <li><NavLink to="/register" activeclassname="active-link">Register</NavLink></li>
+  </ul>
+</nav>
+        {/* <li><Link to="/logout">Logout</Link></li> */}
       </ul>
     </nav>
     </header>
 
     <main>
     <Routes>
-      <Route path='/' element={<Login setLogIn={handleLogin} />} />
+      <Route path='/login' element={<Login setLogIn={handleLogin} />} />
       
-    <Route path="/products" element={<Products />} />
+    <Route path="/" element={<Products />} />
 
 
       <Route path="/about-us" element={<AboutUs />} />
       <Route path="/cart" element={<CartItems />} />
-      <Route path="/profile" element={<h1>Porfile</h1>} />
-      <Route path="/logout" element={<Logout />} />
+      <Route path="/checkout" element={<Checkout />} />
+      <Route path="/profile" element={<Profile />} />
+      <Route path="/register" element={<Register />} />
+      {/* <Route path="/logout" element={<Logout />} /> */}
       
      
     </Routes>
     </main>
     <footer></footer>
+    {/* </Elements> */}
     </>
   );
 }
