@@ -19,11 +19,11 @@ const AboutUs = () => {
           <li><FaDatabase color="#316192" /> PostgreSQL: Managing and querying data with one of the most advanced open-source databases.</li>
           <li><FaWrench color="#F7DF1E" /> Sequelize: Bridging our application and database with a promise-based ORM.</li>
           <li><FaBook color="#35a7df" /> Swagger: Documenting our APIs, making them understandable and accessible.</li>
-        </ul>
+        </ul> 
         
 
       </p>
-      <img src="./smart" alt="shirt" width="70%" height="auto" />
+      <img src="./smart"  alt="shirt" width="70%" height="auto" />
 
       <h2 className="about-us-subtitle"><FaWrench /> Personalization and Flexibility</h2>
       <p  className="about-us-text">
