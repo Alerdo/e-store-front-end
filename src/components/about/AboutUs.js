@@ -26,7 +26,7 @@ const AboutUs = () => {
       <img src="./smart" alt="shirt" width="70%" height="auto" />
 
       <h2 className="about-us-subtitle"><FaWrench /> Personalization and Flexibility</h2>
-      <p className="about-us-text">
+      <p  className="about-us-text">
         One of the primary strengths of NextBuy lies in its adaptability. It's crafted with customization in mind. Whether you have specific functionalities in mind, unique workflows, or particular design aesthetics, NextBuy can be tailored to cater to those exact needs. This flexibility makes it not just a sample but a potential starting point for numerous e-commerce applications.
       </p>
 

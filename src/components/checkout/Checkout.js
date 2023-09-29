@@ -27,7 +27,7 @@ const Checkout = () => {
   //     console.log('[error]', error);
   //   } else {
   //     console.log('[PaymentMethod]', paymentMethod);
-  //     // Here, you would send the paymentMethod.id to your server to handle the actual charge.
+  //      // Here, you would send the paymentMethod.id to your server to handle the actual charge.
   //   }
   // };
 

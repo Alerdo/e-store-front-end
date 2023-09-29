@@ -52,7 +52,7 @@ const CartItems = ({ setCartNr }) => {
   const removeItem = async (itemId) => {
     try {
       const response = await fetch('http://localhost:3001/cart_items/remove-item', {
-        method: 'DELETE',
+        method: 'DELETE' ,
         headers: {
           'Content-Type': 'application/json',
         },

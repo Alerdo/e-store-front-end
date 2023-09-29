@@ -12,7 +12,7 @@ const Profile = () => {
   const [updateData, setUpdateData] = useState({
     email: '',
     name: '',
-    address: ''
+    address:  ''
   });
 
   const navigate = useNavigate();
