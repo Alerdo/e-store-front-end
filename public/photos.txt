@@ -1,0 +1,21 @@
+
+White Shirt	4 white-shirt_4
+Blue Denim Shirt 5 blue-shirt-5
+Striped Shirt	6 striped-shirt-6
+Formal Shirt	7 formal-shirt-7
+Casual Shirt	8 casual-shirt-8
+Black Hat	9 black-hat-9
+Red Baseball Ha 10 baseball-hat-10
+Straw Hat	11 straw-hat-11
+Winter Hat	12 winter-hat-12
+Panama Hat	13 panama-hat-13
+Blue Jeans	14 blue-jeans-14
+Black Trousers	15 black-trousers-15
+Shorts		16 shorts-16
+Khaki Pants	17 khaki-pants-17
+Chinos	   	18   chinos-18
+Yoga Pants	19 yoga-pants-19
+Cargo Pants	20 cargo-pants-20
+Bermuda Shorts	21 bermuda-shorts-21
+Beach Hat	22 beach-hat-22
+Dress Shirt	23 dress-shirt-23

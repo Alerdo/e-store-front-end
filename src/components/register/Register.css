@@ -1,0 +1,81 @@
+.register-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    height: 90vh;
+    background-color: #f4f4f4;
+}
+
+.register-title {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.register-form {
+    display: flex;
+    flex-direction: column;
+    width: 350px;
+    background-color: #fff;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+
+.register-form > *:last-child {
+  align-self: center;
+}
+
+
+label, /* Combining label styling */
+.register-label {
+    font-weight: bold;
+    /* margin-top: 10px;
+    margin-bottom: 0.8rem; */
+}
+
+input, /* Combining input styling */
+.register-input {
+    padding: 0.5rem;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-bottom: 0.8rem;
+}
+
+.button, /* Combining button styling */
+.register-button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 200px;
+}
+
+.button:hover,
+.register-button:hover {
+    background-color: #0056b3;
+}
+
+.register-register-link {
+    font-family: 'Georgia, serif';
+    font-size: 1rem;
+    text-align: center;
+    margin-top: 20px;
+    color: #666;  /* A subtle gray color */
+}
+
+.register-register-link a {
+    padding: 2px 4px;
+    border-radius: 3px;
+    transition: background-color 0.2s, color 0.2s;  /* Smooth transition for hover effect */
+}
+
+.register-register-link a:hover {
+    background-color: #007bff;  /* The blue becomes the background on hover */
+    color: #fff;  /* Text turns white on hover */
+}

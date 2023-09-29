@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './Login.css';
 
 
 const Login = ({setLogIn}) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState(''); 
-  
-
+  const navigate = useNavigate()
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -23,7 +23,7 @@ const Login = ({setLogIn}) => {
       const data = await response.json();
   
       if (data.success) {
-        setLogIn(true);
+       navigate('/')
         localStorage.setItem('isLoggedIn', true );
       } else {
         alert(data.message || 'Failed to login');

@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import React, { useState, useEffect, useRef } from 'react';
+import { redirect, useNavigate } from 'react-router-dom';
 import './Profile.css';
 
 const Profile = () => {
@@ -17,17 +17,11 @@ const Profile = () => {
 
   const navigate = useNavigate();
 
-  const isLoggedIn = localStorage.getItem('isLoggedIn'); // Assuming you set this during login
+  // const isLoggedIn = localStorage.getItem('isLoggedIn'); // Assuming you set this during login
+  // const hasShownAlert = useRef(false);
 
   useEffect(() => {
 
-
- 
-    if (!isLoggedIn) {
-      alert("You need to login to acces your profile.");
-      navigate('/login'); // Redirect them to the login page
-      return;
-    }
     const fetchProfile = async () => {
         try {
           const response = await fetch('http://localhost:3001/user/profile', {
@@ -44,14 +38,23 @@ const Profile = () => {
             name: data.name || '',
             address: data.address || ''
           });
+
           
-          console.log(data)
+          
+          if (data.message) {
+            alert(data.message)
+            navigate('/login');
+            return;
+          }
+          
         } catch (error) {
           console.error('Error fetching profile:', error);
         }
       };
     fetchProfile();
-  }, [setUserData]);
+  }, []);
+
+
 
   const handleUpdate = async () => {
     try {
@@ -65,13 +68,21 @@ const Profile = () => {
       });
       const data = await response.json();
       if (data.message === 'Profile updated successfully') {
-        setUserData(data.user);
+        // Set the updated data to userData state
+        setUserData({
+          email: updateData.email,
+          name: updateData.name,
+          address: updateData.address
+        });
+
         alert('Profile updated successfully');
+   
       }
     } catch (error) {
       console.error('Error updating profile:', error);
     }
   };
+
 
   const handleDelete = async () => {
     try {
@@ -80,7 +91,9 @@ const Profile = () => {
         credentials: 'include',
       });
       const data = await response.json();
-      if (data === 'User deleted successfully') {
+      console.log(data)
+      if (data.message === 'User deleted successfully') {
+        alert(data.message)
         navigate('/login');  // Redirect to home page
       }
     } catch (error) {
@@ -89,31 +102,29 @@ const Profile = () => {
   };
 
 
-  const logout = async  () => {
+  const logout = async () => {
     try {
       const response = await fetch('http://localhost:3001/authentication/logout', {
-          method: 'POST',  
-          credentials: 'include',
+        method: 'POST',
+        credentials: 'include',
       });
-
-
-      if (response) {
-        localStorage.removeItem('isLoggedIn');  // Remove the client-side state
+  
+      const data = await response.json(); // Fixed line
+  
+      if (data.success) {
+        localStorage.setItem('isLoggedIn', 'false');  // Set client-side state to logged out
         navigate('/login');  // Redirect to home page
-        console.log(response)
+        console.log(response);
       } else {
-        const data = await response.json();
         alert('Failed to logout: ' + data.message);
       }
-
+  
     } catch (error) {
       alert('An error occurred while trying to logout: ' + error.message);
-      console.log(error)
+      console.log(error);
     }
- 
-
+  };
   
-};
 
   return (
     <div className="profile-container">

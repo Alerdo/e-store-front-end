@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import './Products.css'
+import './Product.css';
+
+
 const Products = () => {
   const [products, setProducts] = useState([]);
   const [quantities, setQuantities] = useState({});
+
 
   const fetchProducts = async () => {
     try {
@@ -47,7 +50,7 @@ const Products = () => {
       });
       const data = await response.json();
       if (data.message) {
-        alert(data.message);
+        alert(data.message)
        
       }
     } catch (error) {
@@ -56,47 +59,32 @@ const Products = () => {
   };
   
 
-
-
-  // const gridStyle = {
-  //   display: 'grid',
-  //   gridTemplateColumns: 'repeat(3, 1fr)',
-  //   gap: '30px',
-  //   margin: '10px'
-  // };
-
-  // const cardStyle = {
-  //   border: '1px solid black',
-  //   padding: '16px',
-  //   textAlign: 'center',
-  //   margin: '20px'
-  // };
-
   return (
-    <div>
-     <h1>Welcome to NextBuy!</h1>
+    <>
+   <h1 className="nextbuy-header">Welcome to <span className='next-buy'>NextBuy</span>!</h1>
 <p className='intro'>Discover handpicked, high-quality products crafted with precision and love. Dive into a world where quality meets affordability.</p>
 
       <div className="grid">
         {products.map(product => (
           <div key={product.id} className="card">
-           <img src={product.image_url} alt={product.name} width="70%" height="200px"/>
+           <img  src={product.image_url} alt={product.name} width="78%" height="210px" loading="lazy" />
             <h2>{product.name}</h2>
             <p className='description'>{product.description}</p>
-            <p className='price'>${product.price}</p>
-            <p>Stock: {product.stock_quantity}</p>
-            {/* <p>{product.id}</p> */}
+            <p className='price'>£{product.price}</p>
+            {/* <p>Stock: {product.stock_quantity}</p> */}
+            {/* <p>{product.id}</p>
+            <p>{product.image_url}</p> */}
             <div>
-            <button onClick={() => handleQuantityChange(product.id, -1)}>-</button>
-            {quantities[product.id]}
-            <button onClick={() => handleQuantityChange(product.id, 1)}>+</button>
-            <button onClick={() => addToCart(product.id)}>Add to Cart</button>
+            <button className="button1" onClick={() => handleQuantityChange(product.id, -1)}>-</button>
+             {quantities[product.id]}
+            <button className="button1" onClick={() => handleQuantityChange(product.id, 1)}>+</button>
+            <button className="button1 add-card"  onClick={() => addToCart(product.id)}>Add to Cart</button>
             </div>
           </div>
         ))}
       </div>
-      
-    </div>
+      </>
+     
 );
  
 };

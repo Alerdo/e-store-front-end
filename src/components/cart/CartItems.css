@@ -1,0 +1,59 @@
+.cart-container {
+  width: 60%;
+  margin: auto;
+  text-align: center;
+}
+
+.cart-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+.cart-table th, .cart-table td {
+  border: 1px solid #ccc;
+  padding: 8px;
+  text-align: left;
+}
+
+.remove-button {
+  background-color: red;
+  color: white;
+  border: none;
+  cursor: pointer;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2); /* Shadows for 3D effect */
+  transition: 0.3s; /* Smooth transition effect */
+  border-radius: 3px; /* Slight rounded corners */
+}
+
+/* Style for hovering over the remove button to give a click effect */
+.remove-button:hover {
+  transform: translateY(1px);
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+
+.checkout-button {
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  background-color: #007BFF; /* A nice blue shade */
+  color: white;
+  border: none;
+  border-radius: 5px; /* Rounded corners */
+  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2); /* Shadows for 3D effect */
+  transition: 0.3s; /* Smooth transition effect */
+}
+
+/* Style for hovering over the checkout button to give a click effect */
+.checkout-button:hover {
+  transform: translateY(1px);
+  box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.2);
+  background-color: #0056b3;
+}
+
+/* Style for pressing down the checkout button */
+.checkout-button:active {
+  transform: translateY(3px);
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+}

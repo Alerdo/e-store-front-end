@@ -52,8 +52,8 @@ const Register = () => {
         data = await response.json();
 
         if (data && data.success) {
-          localStorage.setItem('isLoggedIn', 'true');
-          navigate('/products');
+          localStorage.setItem('isLoggedIn', true );
+          navigate('/');
         } else {
           alert(data.message || 'Failed to login after registration.');
         }
@@ -67,6 +67,7 @@ const Register = () => {
   };
 
   return (
+   
     <div className="register-container">
       <h1>Register</h1>
       <form className="register-form" onSubmit={handleSubmit}>
@@ -82,9 +83,11 @@ const Register = () => {
         <label>Address:</label>
         <input type="text" name="address" value={formData.address} onChange={handleChange} required />
         
-        <button type="submit">Register</button>
+        <button type="submit" className='button'>Register</button>
+        
       </form>
     </div>
+   
   );
 };
 
