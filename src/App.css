@@ -96,11 +96,6 @@ nav a:hover {
   font-size: 1rem;
 }
 
-/* @media (max-width: 868px) {
-  nav {
-    margin: 0;
-  }
-} */
 
 
 /* Existing styles... */
@@ -147,6 +142,20 @@ nav a:hover {
   .DropdownToggle {
       font-size: 0.5rem; /* Adjust dropdown toggle size */
   }
+}
+
+
+
+@media (max-width: 570px) {
+  nav {
+    margin: 0;
+  }
+  nav a {
+    font-size: 1.3rem;
+    
+    padding: 2px 12px;
+  }
+  
 }
 
 /* For smaller mobile screens */
