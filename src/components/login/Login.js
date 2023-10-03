@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Login.css';
 
+const baseURL = "https://e-store-backendd-16f7136900ad.herokuapp.com/"
 
 const Login = ({setLogIn}) =>  {
   const [email, setEmail] = useState('');
@@ -12,7 +13,7 @@ const Login = ({setLogIn}) =>  {
     e.preventDefault();
   
     try {
-      const response = await fetch('http://localhost:3001/authentication/login', {
+      const response = await fetch(`${baseURL}/authentication/login`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

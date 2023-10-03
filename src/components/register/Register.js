@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Register.css';
 
+const baseURL = "https://e-store-backendd-16f7136900ad.herokuapp.com/"
+
 const Register = () => {
   const [formData, setFormData] = useState({
     email: '',
@@ -22,7 +24,7 @@ const Register = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      let response = await fetch('http://localhost:3001/authentication/register', {
+      let response = await fetch(`${baseURL}/authentication/register`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -37,7 +39,7 @@ const Register = () => {
         alert('Registration successful!');
 
         // Automatically login after a successful registration
-        response = await fetch('http://localhost:3001/authentication/login', {
+        response = await fetch(`${baseURL}/authentication/login`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',

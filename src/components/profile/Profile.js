@@ -2,6 +2,8 @@ import React, { useState, useEffect, useRef } from 'react';
 import { redirect, useNavigate } from 'react-router-dom';
 import './Profile.css';
 
+const baseURL = "https://e-store-backendd-16f7136900ad.herokuapp.com/"
+
 const Profile = () => {
   const [userData, setUserData] = useState({
     email: '',
@@ -24,7 +26,7 @@ const Profile = () => {
 
     const fetchProfile = async () => {
         try {
-          const response = await fetch('http://localhost:3001/user/profile', {
+          const response = await fetch(`${baseURL}user/profile`, {
             credentials: 'include',
           });
           const data = await response.json();
@@ -58,7 +60,7 @@ const Profile = () => {
 
   const handleUpdate = async () => {
     try {
-      const response = await fetch('http://localhost:3001/user/profile', {
+      const response = await fetch(`${baseURL}user/profile`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
@@ -86,7 +88,7 @@ const Profile = () => {
 
   const handleDelete = async () => {
     try {
-      const response = await fetch('http://localhost:3001/user/profile', {
+      const response = await fetch(`${baseURL}user/profile`, {
         method: 'DELETE',
         credentials: 'include',
       });
@@ -104,7 +106,7 @@ const Profile = () => {
 
   const logout = async () => {
     try {
-      const response = await fetch('http://localhost:3001/authentication/logout', {
+      const response = await fetch(`${baseURL}authentication/logout`, {
         method: 'POST',
         credentials: 'include',
       });

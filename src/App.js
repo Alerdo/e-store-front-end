@@ -22,6 +22,8 @@ import {  Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstra
 
 // const [cartNr, setCart] = useState(0);
 
+const baseURL = "https://e-store-backendd-16f7136900ad.herokuapp.com/"
+
 function App() {
   const [login, setLogIn] = useState(false);
   const navigate = useNavigate();  // Import useNavigate from 'react-router-dom'
@@ -43,7 +45,7 @@ function App() {
   
   const logout = async  () => {
     try {
-      const response = await fetch('http://localhost:3001/authentication/logout', {
+      const response = await fetch(`${baseURL}/authentication/logout`, {
           method: 'POST',  
           credentials: 'include',
       });

@@ -1,15 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import './Product.css';
 
+const herokuDb = "https://e-store-backendd-16f7136900ad.herokuapp.com/"
+
 
 const Products = () => {
   const [products, setProducts] = useState([]);
   const [quantities, setQuantities] = useState({});
 
-
+  
   const fetchProducts = async () => {
     try {
-      const response = await fetch('http://localhost:3001/products');
+      const response = await fetch(`${herokuDb}/products`);
       const data = await response.json();
       setProducts(data);
       console.log(data);
@@ -36,8 +38,8 @@ const Products = () => {
 
   // Function to handle adding to cart
   const addToCart = async (id) => {
-    try {
-      const response = await fetch('http://localhost:3001/cart_items/add-item', {
+    try { 
+      const response = await fetch(`${herokuDb}/cart_items/add-item`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

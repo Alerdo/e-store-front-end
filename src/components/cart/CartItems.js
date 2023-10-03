@@ -6,6 +6,9 @@ import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './CartItems.css';
 
+const baseURL = "https://e-store-backendd-16f7136900ad.herokuapp.com/"
+
+
 const CartItems = ({ setCartNr }) => {
   const [cartItems, setCartItems] = useState([]);
   const navigate = useNavigate();
@@ -23,7 +26,7 @@ const CartItems = ({ setCartNr }) => {
 
   const fetchCartItems = async () => {
     try {
-      const response = await fetch('http://localhost:3001/cart_items/items', {
+      const response = await fetch(`${baseURL}/cart_items/items`, {
         credentials: 'include',
       });
 
@@ -51,7 +54,7 @@ const CartItems = ({ setCartNr }) => {
 
   const removeItem = async (itemId) => {
     try {
-      const response = await fetch('http://localhost:3001/cart_items/remove-item', {
+      const response = await fetch(`${baseURL}/cart_items/remove-item`, {
         method: 'DELETE' ,
         headers: {
           'Content-Type': 'application/json',
