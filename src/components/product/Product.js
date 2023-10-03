@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './Product.css';
 
-const herokuDb = "https://e-store-backendd-16f7136900ad.herokuapp.com/"
+const herokuDb = "https://e-store-backendd-16f7136900ad.herokuapp.com"
 
 
 const Products = () => {

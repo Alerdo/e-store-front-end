@@ -22,7 +22,7 @@ import {  Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstra
 
 // const [cartNr, setCart] = useState(0);
 
-const baseURL = "https://e-store-backendd-16f7136900ad.herokuapp.com/"
+const baseURL = "https://e-store-backendd-16f7136900ad.herokuapp.com"
 
 function App() {
   const [login, setLogIn] = useState(false);

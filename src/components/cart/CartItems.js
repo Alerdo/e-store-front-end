@@ -6,7 +6,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './CartItems.css';
 
-const baseURL = "https://e-store-backendd-16f7136900ad.herokuapp.com/"
+const baseURL = "https://e-store-backendd-16f7136900ad.herokuapp.com"
 
 
 const CartItems = ({ setCartNr }) => {

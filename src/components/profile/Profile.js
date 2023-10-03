@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { redirect, useNavigate } from 'react-router-dom';
 import './Profile.css';
 
-const baseURL = "https://e-store-backendd-16f7136900ad.herokuapp.com/"
+const baseURL = "https://e-store-backendd-16f7136900ad.herokuapp.com"
 
 const Profile = () => {
   const [userData, setUserData] = useState({

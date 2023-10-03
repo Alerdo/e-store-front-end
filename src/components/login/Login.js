@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Login.css';
 
-const baseURL = "https://e-store-backendd-16f7136900ad.herokuapp.com/"
+const baseURL = "https://e-store-backendd-16f7136900ad.herokuapp.com"
 
 const Login = ({setLogIn}) =>  {
   const [email, setEmail] = useState('');
