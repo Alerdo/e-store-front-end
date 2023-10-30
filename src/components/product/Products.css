@@ -1,0 +1,126 @@
+
+h1 {
+    font-size: 2rem; 
+    color: #333;
+    text-align: center;
+    margin-top: 1rem;
+    margin-bottom: 8px; 
+    margin: auto;
+    padding-top: 1rem;
+    max-width: fit-content;
+    
+}
+
+.nextbuy-header {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;  /* A modern, clean font-family */
+    font-weight: 300;  /* Lighter font weight for modern feel */
+    text-align: center;
+    font-size: 2.3rem;  /* Adjusted size */
+    color: #333;      /* Slightly off-black for a softer look */
+    text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.2);  /* Increased shadow depth */
+    letter-spacing: 1px;  /* Slight letter spacing for added style */
+    transition: transform 0.2s; /* Subtle hover effect */
+    font-style: italic;  /* Adding italics */
+}
+
+.nextbuy-header:hover {
+    transform: scale(1.02); /* Subtle enlarge effect on hover */
+    cursor: pointer;
+}
+
+
+.intro {
+    font-size: 1.25rem;
+    color: #777;
+    text-align: center;
+    margin-bottom: 20px; 
+    font-style: italic; 
+    max-width: 800px; 
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+/* Grid Styles */
+
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin: 10px;
+    width: 80%;
+    margin: auto;
+    font-size: 13px;
+}
+
+/* Card Styles */
+.card {
+    border: 1px solid #e0e0e0; /* Lighter border for better aesthetics */
+    padding: 10px;
+    text-align: center;
+    margin: 20px;
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0px 0px 15px rgba(0,0,0,0.1); /* Shadow effect */
+    transition: 0.3s; 
+}
+h2 {
+    padding: 0;
+    margin: 0;
+}
+
+p {
+    margin: 0;
+    padding: 0;
+    font-size: 13px;
+}
+
+.price {
+    font-size: 15px;
+}
+.card:hover {
+    transform: scale(1.03); /* Slight scale on hover for interactive feel */
+}
+
+/* Button Styles */
+button {
+    background-color: #007BFF; /* Blue color */
+    color: #fff; /* White text */
+    border: none;
+    padding: 8px 16px;
+    margin: 3px 3px;
+    cursor: pointer;
+    transition: 0.3s;
+    border-radius: 5px; /* Rounded corners */
+    box-shadow: 0px 0px 10px rgba(0,0,0,0.1); /* Shadow effect */
+}
+
+button:hover {
+    background-color: #0056b3; /* Darker shade on hover */
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    /* Font */
+  
+
+    .grid {
+        grid-template-columns: repeat(2, 60%); /* 2 products per row with each taking 45% width */
+        
+        margin: 0px 20px;
+    }
+
+  
+    .card{
+        margin: 0px;
+}
+}
+
+img
+{
+    /* Ensure the image fits within the container */
+    max-width: 100%; /* Prevent image from overflowing */
+    max-height: 100%; /* Prevent image from overflowing */
+    display: block; /* Remove any extra spacing or gaps below the image */
+    margin: 0 auto; /* Center the image horizontally in the container */
+  }
