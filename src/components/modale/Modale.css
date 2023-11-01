@@ -11,12 +11,12 @@
 }
 
 .modal-content {
-  background: white;
-  padding: 20px;
-  border-radius: 4px;
-  width: 60%;
-  max-width: 500px;
-  position: relative;
+  background: white !important;
+  padding: 20px !important;
+  border-radius: 4px !important;
+  width: 60% !important;
+  max-width: 500px !important;
+  position: relative !important;
 }
 
 .close-button {
