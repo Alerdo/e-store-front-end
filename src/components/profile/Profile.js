@@ -68,7 +68,7 @@ const Profile = () => {
 
   const handleUpdate = async () => {
     try {
-      const response = await fetch(`${herokuDb}user/profile`, {
+      const response = await fetch(`${herokuDb}/user/profile`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
@@ -96,7 +96,7 @@ const Profile = () => {
 
   const handleDelete = async () => {
     try {
-      const response = await fetch(`${herokuDb}user/profile`, {
+      const response = await fetch(`${herokuDb}/user/profile`, {
         method: 'DELETE',
         credentials: 'include',
       });
@@ -114,7 +114,7 @@ const Profile = () => {
 
   const logout = async () => {
     try {
-      const response = await fetch(`${herokuDb}authentication/logout`, {
+      const response = await fetch(`${herokuDb}/authentication/logout`, {
         method: 'POST',
         credentials: 'include',
       });
