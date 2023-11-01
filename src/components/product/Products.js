@@ -10,6 +10,7 @@ const Products = () => {
       const data = await response.json();
       setProducts(data);
       console.log(data);
+      console.log(data);
       const initialQuantities = {};
       data.forEach(product => {
         initialQuantities[product.id] = 1;
