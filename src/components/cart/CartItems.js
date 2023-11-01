@@ -33,6 +33,7 @@ const CartItems = ({ setCartNr }) => {
       const data = await response.json();
       if (data.message){
         alert(data.message)
+        console.log(data)
         navigate('/login');
         return;
       }

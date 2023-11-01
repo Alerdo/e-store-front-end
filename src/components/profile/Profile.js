@@ -2,7 +2,8 @@ import React, { useState, useEffect, useRef } from 'react';
 import { redirect, useNavigate } from 'react-router-dom';
 import './Profile.css';
 
-const baseURL = "https://e-store-backendd-16f7136900ad.herokuapp.com"
+
+const herokuDb = "https://e-store-backendd-16f7136900ad.herokuapp.com"
 
 const Profile = () => {
   const [userData, setUserData] = useState({
@@ -19,48 +20,55 @@ const Profile = () => {
 
   const navigate = useNavigate();
 
-  // const isLoggedIn = localStorage.getItem('isLoggedIn'); // Assuming you set this during login
-  // const hasShownAlert = useRef(false);
-
   useEffect(() => {
-
+    console.work("useEffect profile runing")
     const fetchProfile = async () => {
-        try {
-          const response = await fetch(`${baseURL}user/profile`, {
-            credentials: 'include',
-          });
-          const data = await response.json();
-          setUserData({
-            email: data.email || '',
-            name: data.name || '',
-            address: data.address || ''
-          });
-          setUpdateData({
-            email: data.email || '',
-            name: data.name || '',
-            address: data.address || ''
-          });
+      console.work("fetch profile runing")
+      try {
+        const response = await fetch(`${herokuDb}/user/profile`, {
+          credentials: 'include',
+        });
 
-          
-          
-          if (data.message) {
-            alert(data.message)
-            navigate('/login');
-            return;
-          }
-          
-        } catch (error) {
-          console.error('Error fetching profile:', error);
+        console.log(response);
+
+        if (!response.ok) {
+          console.error(`Error fetching profile: ${response.status}`);
+          navigate('/login');
+          return;
         }
-      };
+
+        const data = await response.json();
+        console.log(data);
+
+        setUserData({
+          email: data.email || '',
+          name: data.name || '',
+          address: data.address || ''
+        });
+        
+        setUpdateData({
+          email: data.email || '',
+          name: data.name || '',
+          address: data.address || ''
+        });
+
+        if (data.message) {
+          alert(data.message);
+          navigate('/login');
+          return;
+        }
+
+      } catch (error) {
+        console.error('Error fetching profile:', error);
+      }
+    };
     fetchProfile();
   }, []);
 
 
-
   const handleUpdate = async () => {
     try {
-      const response = await fetch(`${baseURL}user/profile`, {
+      const response = await fetch(`${herokuDb}user/profile`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
@@ -88,7 +96,7 @@ const Profile = () => {
 
   const handleDelete = async () => {
     try {
-      const response = await fetch(`${baseURL}user/profile`, {
+      const response = await fetch(`${herokuDb}user/profile`, {
         method: 'DELETE',
         credentials: 'include',
       });
@@ -106,7 +114,7 @@ const Profile = () => {
 
   const logout = async () => {
     try {
-      const response = await fetch(`${baseURL}authentication/logout`, {
+      const response = await fetch(`${herokuDb}authentication/logout`, {
         method: 'POST',
         credentials: 'include',
       });
