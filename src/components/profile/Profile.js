@@ -21,9 +21,9 @@ const Profile = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    console.work("useEffect profile runing")
+    console.log("useEffect profile runing")
     const fetchProfile = async () => {
-      console.work("fetch profile runing")
+      console.log("fetch profile runing")
       try {
         const response = await fetch(`${herokuDb}/user/profile`, {
           credentials: 'include',
