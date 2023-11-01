@@ -38,7 +38,7 @@ const Profile = () => {
         }
 
         const data = await response.json();
-        console.log(data);
+        // console.log(data);
 
         setUserData({
           email: data.email || '',
