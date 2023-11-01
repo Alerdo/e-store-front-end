@@ -3,8 +3,10 @@ import './Modale.css';
 import { FaTimes, FaCheck } from 'react-icons/fa';
 
 const Modal = ({ isOpen, onClose, children }) => {
+  if (!isOpen) return null;
+
   return (
-    <div className={`modal-overlay ${isOpen ? 'active' : ''}`}>
+    <div className="modal-overlay">
       <div className="modal-content">
         <div className="header">
           <h2>Modal Title</h2>
