@@ -5,21 +5,14 @@ import './CartItems.css';
 
 import Modal from "../modale/Modale.js";
 
-
 const baseURL = "https://e-store-backendd-16f7136900ad.herokuapp.com"
 
 
 const CartItems = ({ setCartNr }) => {
   const [cartItems, setCartItems] = useState([]);
   const navigate = useNavigate();
-
-  const [isModalOpen, setModalOpen] = useState(false);
-
-  const openModal = () => setModalOpen(true);
-  const closeModal = () => setModalOpen(false);
+  // const isLoggedIn = localStorage.getItem('isLoggedIn'); 
   
-  
- 
 
   useEffect(() => {
    
@@ -112,7 +105,6 @@ const CartItems = ({ setCartNr }) => {
       <div className="checkout-button-container">
         <button className="checkout-button" onClick={proceedToCheckout}>Proceed to Checkout</button>
       </div>
-      
     </div>
 );
 
