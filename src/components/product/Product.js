@@ -74,8 +74,8 @@ const Products = () => {
             <p className='description'>{product.description}</p>
             <p className='price'>£{product.price}</p>
             {/* <p>Stock: {product.stock_quantity}</p> */}
-            {/* <p>{product.id}</p>
-            <p>{product.image_url}</p> */}
+             <p>{product.id}</p>
+            {/*<p>{product.image_url}</p> */}
             <div>
             <button className="button1" onClick={() => handleQuantityChange(product.id, -1)}>-</button>
              {quantities[product.id]}
