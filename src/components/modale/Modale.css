@@ -1,19 +1,13 @@
 .modal-overlay {
-  position: fixed !important;
-  top: 0 !important;
-  left: 0 !important;
-  right: 0 !important;
-  bottom: 0 !important;
-  background-color: rgba(0, 0, 0, 0.5) !important;
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  opacity: 0 !important;
-  transition: opacity 0.3s ease-in-out !important;
-}
-
-.modal-overlay.active {
-  opacity: 1 !important;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .modal-content {
@@ -21,58 +15,16 @@
   padding: 20px !important;
   border-radius: 4px !important;
   width: 60% !important;
-  max-width: 500px !important;
-  position: relative !important;
-  display: flex !important;
-  flex-direction: column !important;
-  animation: slideIn 0.3s ease-in-out !important;
+  max-width: 500px;
+  position: relative;
 }
 
-@keyframes slideIn {
-  from {
-    transform: translateY(-50%) !important;
-    opacity: 0 !important;
-  }
-  to {
-    transform: translateY(0) !important;
-    opacity: 1 !important;
-  }
-}
-
-.header, .footer {
-  background-color: #f0f0f0 !important;
-  padding: 10px !important;
-  border-radius: 4px !important;
-}
-
-.header {
-  display: flex !important;
-  justify-content: space-between !important;
-  align-items: center !important;
-}
-
-.close-button, .footer-button {
-  background-color: #28a745 !important;
-  color: white !important;
-  padding: 10px 20px !important;
-  border: none !important;
-  border-radius: 4px !important;
-  cursor: pointer !important;
-  font-size: 16px !important;
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1) !important;
-  transition: all 0.2s ease-in-out !important;
-}
-
-.close-button:hover, .footer-button:hover {
-  background-color: #1f7a33 !important;
-  box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.2) !important;
-}
-
-.close-icon {
-  margin-right: 10px !important;
-}
-
-.success-message {
-  color: #28a745 !important;
-  font-weight: bold !important;
+.close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-size: 20px;
 }
