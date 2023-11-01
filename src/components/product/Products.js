@@ -75,7 +75,7 @@ const Products = () => {
         ))}
       </div>
       <Modal isOpen={isModalOpen} onClose={() => setModalOpen(false)}>
-        <p>{modalMessage}</p>
+      <p><strong>{modalMessage}</strong></p>
       </Modal>
     </>
   );
