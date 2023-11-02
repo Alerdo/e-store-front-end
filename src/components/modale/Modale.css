@@ -81,3 +81,13 @@
   color: #28a745;
   padding: 30px 5px;
 }
+
+
+
+
+/* Adjust width for small devices */
+@media screen and (max-width: 768px) {
+  .modal-content {
+    width: 80% !important;
+  }
+}

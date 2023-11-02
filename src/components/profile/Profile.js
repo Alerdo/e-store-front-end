@@ -2,10 +2,16 @@ import React, { useState, useEffect, useRef } from 'react';
 import { redirect, useNavigate } from 'react-router-dom';
 import './Profile.css';
 
+import Modal from '../modale/Modale.js';
 
 const herokuDb = "https://e-store-backendd-16f7136900ad.herokuapp.com"
 
 const Profile = () => {
+
+  const [isModalOpen, setModalOpen] = useState(false);
+  const [modalMessage, setModalMessage] = useState("");
+
+
   const [userData, setUserData] = useState({
     email: '',
     name: '',
@@ -85,7 +91,8 @@ const Profile = () => {
           address: updateData.address
         });
 
-        alert('Profile updated successfully');
+        setModalMessage(<>Profile updated successfully.</>);  // Updated line
+        setModalOpen(true);
    
       }
     } catch (error) {
@@ -103,8 +110,10 @@ const Profile = () => {
       const data = await response.json();
       console.log(data)
       if (data.message === 'User deleted successfully') {
-        alert(data.message)
-        navigate('/login');  // Redirect to home page
+        // alert(data.message)
+        // navigate('/login');  // Redirect to home page
+        setModalMessage(<>User deleted successfully</>);  // Updated line
+        setModalOpen(true);
       }
     } catch (error) {
       console.error('Error deleting profile:', error);
@@ -157,6 +166,9 @@ const Profile = () => {
       <div className="logout">
         <button onClick={logout}>Logout</button>
       </div>
+      <Modal isOpen={isModalOpen} onClose={() => setModalOpen(false)}>
+        <p className='message'>{modalMessage}</p>
+      </Modal>
     </div>
   );
 };
