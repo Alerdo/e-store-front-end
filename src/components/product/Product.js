@@ -46,14 +46,14 @@ const Products = () => {
       });
       const data = await response.json();
       if (data.message) {
-        setModalMessage(`${name} successfully added to the cart`);
+        setModalMessage(<><strong>{name}</strong> successfully added to the cart</>);  // Updated line
         setModalOpen(true);
       }
     } catch (error) {
       console.error('Error adding item to cart:', error);
     }
   };
-
+  
   return (
     <>
       <h1 className="nextbuy-header">Welcome to <span className='next-buy'>NextBuy</span>!</h1>
