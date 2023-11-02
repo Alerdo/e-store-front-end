@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import './Product.css';
 import Modal from '../modale/Modale.js';
+import { useCart } from '../Context';
+
 
 const herokuDb = "https://e-store-backendd-16f7136900ad.herokuapp.com";
 
@@ -9,6 +11,17 @@ const Products = () => {
   const [quantities, setQuantities] = useState({});
   const [isModalOpen, setModalOpen] = useState(false);
   const [modalMessage, setModalMessage] = useState("");
+
+
+  const { setCartNr } = useCart();
+
+  const addOneToCart = () => {
+    // your add to cart logic here
+
+    // After successfully adding to cart, update the cart number
+    setCartNr(prevCount => prevCount + 1);
+  };
+
 
   const fetchProducts = async () => {
     try {
@@ -48,6 +61,7 @@ const Products = () => {
       if (data.message) {
         setModalMessage(<><strong>{name}</strong> successfully added to the cart</>);  // Updated line
         setModalOpen(true);
+        addOneToCart()
       }
     } catch (error) {
       console.error('Error adding item to cart:', error);

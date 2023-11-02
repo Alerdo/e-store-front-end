@@ -62,13 +62,20 @@ nav a:hover {
   background-color: #495057;  /* Slightly lighter shade on hover */
 }
 
-.cartNr {
+.cart-number {
   font-size: 1.2rem;
   padding: 0;
   margin: 0;
   color: red;
   display: none;
 }
+/* .cart-number {
+  background-color: red;
+  padding: 2px 5px;
+  border-radius: 5px;
+  color: white;
+  font-size: 12px;
+} */
 
 /* Active link styling */
 .active {

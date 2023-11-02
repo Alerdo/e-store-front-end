@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import './CartItems.css';
 
 import Modal from "../modale/Modale.js";
+// import { useCart } from '../Context';
 
 const baseURL = "https://e-store-backendd-16f7136900ad.herokuapp.com"
 
@@ -13,7 +14,6 @@ const CartItems = ({ setCartNr }) => {
   const navigate = useNavigate();
   // const isLoggedIn = localStorage.getItem('isLoggedIn'); 
   
-
   useEffect(() => {
    
     fetchCartItems();
