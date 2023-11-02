@@ -58,7 +58,9 @@
   margin-right: 10px;
 }
 
-.success-message {
+.message {
   color: #28a745;
   font-weight: bold;
+  padding: 30px auto;
 }
+
