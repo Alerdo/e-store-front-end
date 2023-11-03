@@ -48,7 +48,7 @@ const Products = () => {
       });
       const data = await response.json();
       if (data.message) {
-        setModalMessage(<><strong>{name}</strong> successfully added to the cart</>);  // Updated line
+        setModalMessage(<>{data.message}</>);  // Updated line
         setModalOpen(true);
       }
     } catch (error) {
