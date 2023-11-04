@@ -29,8 +29,8 @@ const Register = () => {
         headers: {
           'Content-Type': 'application/json',
         },
-        credentials: 'include', // Include this line
-        body: JSON.stringify(formData),
+        credentials: 'include', 
+        body: JSON.stringify(formData)
       });
 
       let data = await response.json();

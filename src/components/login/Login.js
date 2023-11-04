@@ -18,7 +18,7 @@ const Login = ({setLogIn}) =>  {
         headers: {
           'Content-Type': 'application/json',
         },
-        credentials: 'include',  // Important for CORS
+        credentials: 'include', 
         body: JSON.stringify({ email, password }),
       });
       const data = await response.json();
