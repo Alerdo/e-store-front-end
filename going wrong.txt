@@ -85,3 +85,65 @@ Solution:
 To solve this I added 2 requests on the register front end request. 
 1 to register, and depending on the data another one to log in the user. 
 
+
+
+
+I know have to verify the 
+
+PS C:\Users\alerd\OneDrive\Documents\DevelopmentFolder\E-Commerce REST API\backend> heroku apps
+=== alerdo23@gmail.com Apps
+e-store-backendd
+
+PS C:\Users\alerd\OneDrive\Documents\DevelopmentFolder\E-Commerce REST API\backend> 
+PS C:\Users\alerd\OneDrive\Documents\DevelopmentFolder\E-Commerce REST API\backend> heroku domains -a e-store-backendd
+=== e-store-backendd Heroku Domain
+
+e-store-backendd-16f7136900ad.herokuapp.com
+PS C:\Users\alerd\OneDrive\Documents\DevelopmentFolder\E-Commerce REST API\backend> heroku domains:add api.alerdo-ballabani.co.uk -a e-store-backendd
+Configure your app's DNS provider to point to the DNS Target enigmatic-fjord-fgx1zv94s8ve7jbwfl3vigod.herokudns.com.
+    For help, see https://devcenter.heroku.com/articles/custom-domains
+
+The domain api.alerdo-ballabani.co.uk has been enqueued for addition
+The domain api.alerdo-ballabani.co.uk has been enqueued for addition
+Run heroku domains:wait 'api.alerdo-ballabani.co.uk' to wait for completion
+Adding api.alerdo-ballabani.co.uk to ⬢ e-store-backendd... done
+PS C:\Users\alerd\OneDrive\Documents\DevelopmentFolder\E-Commerce REST API\backend>
+PS C:\Users\alerd\OneDrive\Documents\DevelopmentFolder\E-Commerce REST API\backend> heroku domains -a e-store-backendd
+=== e-store-backendd Heroku Domain
+
+e-store-backendd-16f7136900ad.herokuapp.com
+
+=== e-store-backendd Custom Domains
+
+ Domain Name                DNS Record Type DNS Target                                             SNI Endpoint 
+ ────────────────────────── ─────────────── ────────────────────────────────────────────────────── ──────────── 
+ api.alerdo-ballabani.co.uk CNAME           enigmatic-fjord-fgx1zv94s8ve7jbwfl3vigod.herokudns.com undefined
+PS C:\Users\alerd\OneDrive\Documents\DevelopmentFolder\E-Commerce REST API\backend> heroku domains:wait 'api.alerdo-ballabani.co.uk' -a e-store-backendd
+Waiting for api.alerdo-ballabani.co.uk... done
+PS C:\Users\alerd\OneDrive\Documents\DevelopmentFolder\E-Commerce REST API\backend> heroku certs:auto -a e-store-backendd
+=== Automatic Certificate Management is disabled on e-store-backendd
+PS C:\Users\alerd\OneDrive\Documents\DevelopmentFolder\E-Commerce REST API\backend> heroku certs:auto:refresh -a e-store-backendd
+Refreshing Automatic Certificate Management... !
+ !    Your app needs ACM enabled to refresh
+PS C:\Users\alerd\OneDrive\Documents\DevelopmentFolder\E-Commerce REST API\backend> 
+PS C:\Users\alerd\OneDrive\Documents\DevelopmentFolder\E-Commerce REST API\backend> heroku certs:auto:enable -a e-store-backendd
+Enabling Automatic Certificate Management... starting. See status with heroku certs:auto or wait until active with heroku certs:auto --wait
+=== Your certificate will now be managed by Heroku.  Check the status by running heroku certs:auto.
+PS C:\Users\alerd\OneDrive\Documents\DevelopmentFolder\E-Commerce REST API\backend> 
+PS C:\Users\alerd\OneDrive\Documents\DevelopmentFolder\E-Commerce REST API\backend> heroku certs:auto -a e-store-backendd
+=== Automatic Certificate Management is enabled on e-store-backendd
+
+Certificate details:
+Common Name(s): api.alerdo-ballabani.co.uk
+Domain(s):      735c0d67-27a6-4b3a-a5ea-0c18920a627a
+Expires At:     2024-02-02 15:20 UTC
+Issuer:         /CN=R3/O=Let's Encrypt/C=US
+Starts At:      2023-11-04 15:20 UTC
+Subject:        /CN=api.alerdo-ballabani.co.uk
+SSL certificate is verified by a root authority.
+
+Domain                      Status       Last Updated
+──────────────────────────  ───────────  ──────────────────
+api.alerdo-ballabani.co.uk  Cert issued  less than a minute
+PS C:\Users\alerd\OneDrive\Documents\DevelopmentFolder\E-Commerce REST API\backend> 
+PS C:\Users\alerd\OneDrive\Documents\DevelopmentFolder\E-Commerce REST API\backend>

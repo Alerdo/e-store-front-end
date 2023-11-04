@@ -4,7 +4,7 @@ import './Profile.css';
 
 import Modal from '../modale/Modale.js';
 
-const herokuDb = "https://e-store-backendd-16f7136900ad.herokuapp.com"
+const herokuDb = "https://api.alerdo-ballabani.co.uk";
 
 const Profile = () => {
 

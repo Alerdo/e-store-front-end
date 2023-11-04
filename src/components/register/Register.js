@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Register.css';
 
-const baseURL = "https://e-store-backendd-16f7136900ad.herokuapp.com"
+const herokuDb = "https://api.alerdo-ballabani.co.uk";
 
 const Register = () => {
   const [formData, setFormData] = useState({

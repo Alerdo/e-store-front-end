@@ -6,7 +6,8 @@ import './CartItems.css';
 import Modal from "../modale/Modale.js";
 // import { useCart } from '../Context';
 
-const baseURL = "https://e-store-backendd-16f7136900ad.herokuapp.com"
+
+const baseURL = "https://api.alerdo-ballabani.co.uk";
 
 
 const CartItems = ({ setCartNr }) => {
