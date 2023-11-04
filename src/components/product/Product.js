@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './Product.css';
 import Modal from '../modale/Modale.js';
 
-const herokuDb = "http://api.alerdo-ballabani.co.uk";
+const herokuDb = "https://api.alerdo-ballabani.co.uk";
 
 const Products = () => {
   const [products, setProducts] = useState([]);
