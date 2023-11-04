@@ -2,13 +2,15 @@
 import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
+const baseURL = "https://api.alerdo-ballabani.co.uk";
+
 const Logout = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
     const logout = async () => {
       try {
-        const response = await fetch('http://localhost:3001/authentication/logout', {
+        const response = await fetch(`${baseURL}/authentication/logout`, {
           credentials: 'include',
         });
 
