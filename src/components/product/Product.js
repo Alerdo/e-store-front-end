@@ -4,7 +4,7 @@ import Modal from '../modale/Modale.js';
 
 const herokuDb = "https://api.alerdo-ballabani.co.uk";
 
-const Products = () => {
+const Products = ({setCartItems, fetchCartItems}) => {
   const [products, setProducts] = useState([]);
   const [quantities, setQuantities] = useState({});
   const [isModalOpen, setModalOpen] = useState(false);
@@ -48,9 +48,11 @@ const Products = () => {
       });
       const data = await response.json();
       if (data.message) {
+        fetchCartItems();
         setModalMessage(<>{data.message}</>);  // Updated line
         setModalOpen(true);
       }
+      setCartItems()
     } catch (error) {
       console.error('Error adding item to cart:', error);
     }
