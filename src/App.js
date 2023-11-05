@@ -22,7 +22,7 @@ import {  Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstra
 
 
 
-const baseURL = "https://e-store-backendd-16f7136900ad.herokuapp.com"
+const baseURL = "https://api.alerdo-ballabani.co.uk";
 
 function App() {
   const [login, setLogIn] = useState(false);
@@ -43,31 +43,29 @@ function App() {
 
 
   
-  const logout = async  () => {
+  const logout = async () => {
     try {
       const response = await fetch(`${baseURL}/authentication/logout`, {
-          method: 'POST',  
-          credentials: 'include',
+        method: 'POST',
+        credentials: 'include',
       });
-      const data = response.json()
-
-
-      if (data) {
+  
+      const data = await response.json(); // Fixed line
+  
+      if (data.success) {
+        localStorage.setItem('isLoggedIn', 'false');  // Set client-side state to logged out
         navigate('/login');  // Redirect to home page
-        console.log(response)
+        console.log(response);
       } else {
-        navigate('/login');
         alert('Failed to logout: ' + data.message);
       }
-
+  
     } catch (error) {
       alert('An error occurred while trying to logout: ' + error.message);
-      console.log(error)
+      console.log(error);
     }
- 
-
+  };
   
-};
 
 return (
   <>
