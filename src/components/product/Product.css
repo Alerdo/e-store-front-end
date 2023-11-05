@@ -48,13 +48,15 @@ h1 {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 30px;
-    margin: 10px;
     width: 80%;
     margin-left: auto;
     margin-right: auto;
     font-size: 13px;
+    align-items: center;  /* Center content vertically */
+    /* justify-items: center;  */
     
 }
+
 
 /* Card Styles */
 .card {
@@ -104,7 +106,7 @@ p {
 }
 
 .button1 {
-    background-color: #007BFF; /* Blue color */
+    background-image: linear-gradient(to right, #a0e0a0, #70c070);
     color: #fff; /* White text */
     border: none;
     padding: 8px 16px;
@@ -116,7 +118,8 @@ p {
 }
 
 .button1:hover {
-    background-color: #0056b3; /* Darker shade on hover */
+    background-color: rgb(128, 128, 128); /* Darker shade on hover */
+    box-shadow: 0px 0px 10px rgba(0,0,0,0.1); /* Shadow effect */
 }
 
 /* Mobile Responsiveness */
@@ -140,7 +143,6 @@ p {
     }
     .grid {
         grid-template-columns: repeat(2, 46%); /* 2 products per row with each taking 45% width */
-        gap: 15px;
         margin: 15px 1px;
         width: 90%;
         max-width: 100%;
@@ -180,14 +182,16 @@ p {
     .button1 {
         margin-bottom: 2px;
         padding: 5px 15px;
+        
     }
     .add-card {
-        margin-bottom: 0px;
+      
     }
    
   
     .card{
         margin: 0px;
+        padding: 0px;
 }
 }
 
