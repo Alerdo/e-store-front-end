@@ -8,11 +8,15 @@ const CartItems = ({ cartItems, setCartItems, fetchCartItems, setCartNr }) => {
 
   const navigate = useNavigate();
 
-  useEffect(() => {
-    setCartNr(cartItems.length);
-  }, [cartItems]);
+  // useEffect(() => {
+  //   setCartNr(cartItems.length);
+  // }, [cartItems]);
 
-  const totalPrice = cartItems.reduce((total, item) => total + item.product.price * item.quantity, 0);
+
+// Now, you should be safe to calculate the total price
+const totalPrice = cartItems.length > 0 ? cartItems.reduce((total, item) => total + item.product.price * item.quantity, 0) : 0;
+
+
 
 
   const proceedToCheckout = () => {
@@ -59,13 +63,14 @@ const CartItems = ({ cartItems, setCartItems, fetchCartItems, setCartNr }) => {
           </tr>
         </thead>
         <tbody>
-          {cartItems.map(item => (
-            <tr key={item.id}>
-              <td>{item.product.name}</td>
-              <td>{item.quantity * item.product.price}{item.quantity > 1 && <span>x{item.quantity}</span>}</td>
-              <td><button className="remove-button" onClick={() => removeItem(item.id)}>X</button></td>
-            </tr>
-          ))}
+        {Array.isArray(cartItems) && cartItems.map(item => (
+    <tr key={item.id}>
+        <td>{item.product.name}</td>
+        <td>{item.quantity * item.product.price}{item.quantity > 1 && <span>x{item.quantity}</span>}</td>
+        <td><button className="remove-button" onClick={() => removeItem(item.id)}>X</button></td>
+    </tr>
+))}
+
         </tbody>
       </table>
       <div className="total-price">Total: £{totalPrice.toFixed(2)}</div>
@@ -75,3 +80,7 @@ const CartItems = ({ cartItems, setCartItems, fetchCartItems, setCartNr }) => {
 };
 
 export default CartItems;
+
+
+
+

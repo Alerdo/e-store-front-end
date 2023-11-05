@@ -67,7 +67,6 @@ h1 {
     border-radius: 10px; /* Rounded corners */
     box-shadow: 0px 0px 15px rgba(0,0,0,0.1); /* Shadow effect */
     transition: 0.3s; 
-    border: 1px solid green;
     display: flex !important;
     align-items: center;
 }
@@ -129,6 +128,23 @@ p {
     box-shadow: 0px 0px 5px rgba(0,0,0,0.1); /* Less shadow to simulate a pressed button */
     transform: scale(0.98); /* Slight scale down to simulate a pressed button */
 }
+
+
+
+/* Styling the nr on the top right corner */
+
+.quantity-indicator {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: red;
+    color: white;
+    border-radius: 50%;
+    padding: 5px 10px;
+    font-size: 1em;
+  }
+  
+
 
 /* Mobile Responsiveness */
 @media (max-width: 768px) {

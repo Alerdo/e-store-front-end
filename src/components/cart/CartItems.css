@@ -57,3 +57,18 @@
   transform: translateY(3px);
   box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
 }
+
+
+
+
+  /* For mobile and tablet screens */
+@media (max-width: 768px) {
+  
+  .cart-container {
+    width: 85%;
+
+    
+  }
+
+
+}

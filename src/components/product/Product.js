@@ -4,7 +4,7 @@ import Modal from '../modale/Modale.js';
 
 const herokuDb = "https://api.alerdo-ballabani.co.uk";
 
-const Products = ({setCartItems, fetchCartItems}) => {
+const Products = ({setCartItems, fetchCartItems, cartItems}) => {
   const [products, setProducts] = useState([]);
   const [quantities, setQuantities] = useState({});
   const [isModalOpen, setModalOpen] = useState(false);
@@ -48,9 +48,18 @@ const Products = ({setCartItems, fetchCartItems}) => {
       });
       const data = await response.json();
       if (data.message) {
-        fetchCartItems();
-        setModalMessage(<>{data.message}</>);  // Updated line
-        setModalOpen(true);
+
+        
+        if(data.message === "Unauthorized, Please Login to access cart") {
+          setModalMessage(<>"Please Login to add items to the cart"</>); 
+          setModalOpen(true);
+        } else {
+          fetchCartItems();
+
+        }
+        
+      
+        
       }
       setCartItems()
     } catch (error) {
@@ -58,6 +67,31 @@ const Products = ({setCartItems, fetchCartItems}) => {
     }
   };
   
+
+
+  //Trying to set the nr present of the cart on each item on the top right corner 
+  const calculateProductQuantities = () => {
+    const productQuantities = {};
+
+    if (Array.isArray(cartItems) && cartItems.length > 0) {
+      cartItems.forEach(item => {
+        if (item.productId) {
+          const productId = item.productId;
+          if (productQuantities[productId]) {
+            productQuantities[productId] += item.quantity;
+          } else {
+            productQuantities[productId] = item.quantity;
+          }
+        }
+      });
+    }
+    return productQuantities;
+  };
+
+  const productQuantities = calculateProductQuantities();
+
+
+
   return (
     <>
       <h1 className="nextbuy-header">Welcome to <span className='next-buy'>NextBuy</span>!</h1>
@@ -65,6 +99,9 @@ const Products = ({setCartItems, fetchCartItems}) => {
       <div className="grid">
         {products.map(product => (
           <div key={product.id} className="card">
+            {productQuantities[product.id] && 
+              <div className="quantity-indicator">{productQuantities[product.id]}</div>
+            }
             <img src={product.image_url} alt={product.name} width="78%" height="210px" loading="lazy" />
             <h2>{product.name}</h2>
             <p className='description'>{product.description}</p>

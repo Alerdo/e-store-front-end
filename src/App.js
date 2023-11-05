@@ -17,6 +17,7 @@ import {  Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstra
 const baseURL = "https://api.alerdo-ballabani.co.uk";
 
 function App() {
+
   const [cartItems, setCartItems] = useState([]);
   const [cartNr, setCartNr] = useState(0);
  
@@ -84,7 +85,7 @@ function App() {
   
       if (data.success) {
         // localStorage.setItem('isLoggedIn', 'false');  
-        setCartNr(0);
+        fetchCartItems()
         navigate('/login');  // Redirect to home page
         console.log(response);
       } else {
@@ -103,10 +104,10 @@ function App() {
     <>
       <header className="bg-dark">
         <nav>
-          <ul className="list-unstyled d-flex p-3">
+          <ul className="list-unstyled d-flex ">
             <li className="mr-3"><NavLink to="/" className="text-white nav-link"><FaTshirt /><span className="d-none d-sm-inline"> Products</span></NavLink></li>
             <li className="mr-3"><NavLink to="/about-us" className="text-white nav-link"><FaInfoCircle /><span className="d-none d-sm-inline"> About Us</span></NavLink></li>
-            <li className="mr-3"><NavLink to="/cart" className="text-white nav-link"><FaShoppingCart /><span className="d-none d-sm-inline"> Cart </span>{cartNr > 0 && <span className="cart-number">[{cartNr}]</span>}    </NavLink>
+            <li className="mr-3"><NavLink to="/cart" className="text-white nav-link nav-link-cart"><FaShoppingCart /><span className="d-none d-sm-inline"> Cart </span>{cartNr > 0 && <span className="cart-number">[{cartNr}]</span>}    </NavLink>
           </li>
           <li className="mr-3"><NavLink to="/checkout" className="text-white nav-link"><FaCashRegister /><span className="d-none d-sm-inline"> Checkout</span></NavLink></li>
           <li className="mr-3"><NavLink to="/profile" className="text-white nav-link"><FaUserCircle /><span className="d-none d-sm-inline"> Profile</span></NavLink></li>
@@ -132,8 +133,8 @@ function App() {
 
       <main>
         <Routes>
-          <Route path='/login' element={<Login />} />
-          <Route path="/" element={<Products setCartItems={setCartItems} fetchCartItems={fetchCartItems} />} />
+          <Route path='/login' element={<Login  fetchCartItems={fetchCartItems}/>} />
+          <Route path="/" element={<Products setCartItems={setCartItems} fetchCartItems={fetchCartItems} cartItems={cartItems} />} />
           <Route path="/about-us" element={<AboutUs />} />
           <Route path="/cart" element={<CartItems cartItems={cartItems} setCartItems={setCartItems} fetchCartItems={fetchCartItems} setCartNr={setCartNr} />} />
           <Route path="/checkout" element={<Checkout />} />

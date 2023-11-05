@@ -6,7 +6,7 @@ import './Login.css';
 const baseURL = "https://api.alerdo-ballabani.co.uk";
 
 
-const Login = ({setLogIn}) =>  {
+const Login = ({setLogIn, fetchCartItems}) =>  {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState(''); 
   const navigate = useNavigate()
@@ -26,8 +26,8 @@ const Login = ({setLogIn}) =>  {
       const data = await response.json();
   
       if (data.success) {
+        fetchCartItems()
        navigate('/')
-        localStorage.setItem('isLoggedIn', true );
       } else {
         alert(data.message || 'Failed to login');
       }
