@@ -84,6 +84,7 @@ function App() {
   
       if (data.success) {
         // localStorage.setItem('isLoggedIn', 'false');  
+        setCartNr(0);
         navigate('/login');  // Redirect to home page
         console.log(response);
       } else {
