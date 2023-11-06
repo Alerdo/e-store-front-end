@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-import { Route, Routes, NavLink } from "react-router-dom";
+
+
 import Products from './components/product/Product';
 import Login from './components/login/Login';
 import CartItems from './components/cart/CartItems';
@@ -11,6 +12,7 @@ import Profile from './components/profile/Profile';
 import Register from './components/register/Register';
 import { FaTshirt, FaInfoCircle, FaShoppingCart, FaCashRegister, FaUserCircle, FaBars, FaSignInAlt, FaUserPlus, FaSignOutAlt } from 'react-icons/fa';
 import "./App.css";
+import { Route, Routes, NavLink } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {  Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
 
@@ -35,8 +37,13 @@ function App() {
     try {
       const response = await fetch(`${baseURL}/cart_items/items`, { credentials: 'include' });
       const data = await response.json();
+      if(data.message === 'Unauthorized, Please Login to access cart') {
+        
+      } else {
+        setCartItems(data);
+      }
       console.log("Cart Items Data:", data);  // Added this line to log the data
-      setCartItems(data);
+     
     } catch (error) {
       console.error('Error fetching cart items:', error);
     }

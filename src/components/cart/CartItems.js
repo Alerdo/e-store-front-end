@@ -12,10 +12,11 @@ const CartItems = ({ cartItems, setCartItems, fetchCartItems, setCartNr }) => {
   //   setCartNr(cartItems.length);
   // }, [cartItems]);
 
-
+console.log(cartItems)
 // Now, you should be safe to calculate the total price
-const totalPrice = cartItems.length > 0 ? cartItems.reduce((total, item) => total + item.product.price * item.quantity, 0) : 0;
-
+const totalPrice = Array.isArray(cartItems) && cartItems.length > 0
+  ? cartItems.reduce((total, item) => total + item.product.price * item.quantity, 0)
+  : 0;
 
 
 
@@ -73,7 +74,7 @@ const totalPrice = cartItems.length > 0 ? cartItems.reduce((total, item) => tota
 
         </tbody>
       </table>
-      <div className="total-price">Total: £{totalPrice.toFixed(2)}</div>
+      <div className="total-price">Total: £{totalPrice && totalPrice.toFixed(2)}</div>
       <div className="checkout-button-container"><button className="checkout-button" onClick={proceedToCheckout}>Proceed to Checkout</button></div>
     </div>
   );

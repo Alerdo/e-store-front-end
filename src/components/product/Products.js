@@ -2,16 +2,14 @@ import React, { useState, useEffect } from 'react';
 import './Product.css';
 import Modal from '../modale/Modale.js';
 
-const herokuDb = "https://api.alerdo-ballabani.co.uk";
+const herokuDb = "https://e-store-backendd-16f7136900ad.herokuapp.com";
 
-const Products = ({setCartItems, fetchCartItems, cartItems}) => {
+const Products = () => {
   const [products, setProducts] = useState([]);
   const [quantities, setQuantities] = useState({});
   const [isModalOpen, setModalOpen] = useState(false);
   const [modalMessage, setModalMessage] = useState("");
 
-
-  
   const fetchProducts = async () => {
     try {
       const response = await fetch(`${herokuDb}/products`);
@@ -48,44 +46,13 @@ const Products = ({setCartItems, fetchCartItems, cartItems}) => {
       });
       const data = await response.json();
       if (data.message) {
-        if (data.message === "Unauthorized, Please Login to access cart") {
-          setModalMessage("Please Login to add items to the cart");
-          setModalOpen(true);
-          setCartItems([])
-        } else {
-          fetchCartItems();
-        }
+        setModalMessage(`${name} successfully added to the cart`);
+        setModalOpen(true);
       }
     } catch (error) {
       console.error('Error adding item to cart:', error);
-      setCartItems([]); // Set to empty array in case of error
     }
   };
-  
-
-
-  //Trying to set the nr present of the cart on each item on the top right corner 
-  const calculateProductQuantities = () => {
-    const productQuantities = {};
-
-    if (Array.isArray(cartItems) && cartItems.length > 0) {
-      cartItems.forEach(item => {
-        if (item.productId) {
-          const productId = item.productId;
-          if (productQuantities[productId]) {
-            productQuantities[productId] += item.quantity;
-          } else {
-            productQuantities[productId] = item.quantity;
-          }
-        }
-      });
-    }
-    return productQuantities;
-  };
-
-  const productQuantities = calculateProductQuantities();
-
-
 
   return (
     <>
@@ -94,9 +61,6 @@ const Products = ({setCartItems, fetchCartItems, cartItems}) => {
       <div className="grid">
         {products.map(product => (
           <div key={product.id} className="card">
-            {productQuantities[product.id] && 
-              <div className="quantity-indicator">{productQuantities[product.id]}</div>
-            }
             <img src={product.image_url} alt={product.name} width="78%" height="210px" loading="lazy" />
             <h2>{product.name}</h2>
             <p className='description'>{product.description}</p>
@@ -111,7 +75,7 @@ const Products = ({setCartItems, fetchCartItems, cartItems}) => {
         ))}
       </div>
       <Modal isOpen={isModalOpen} onClose={() => setModalOpen(false)}>
-        <p className='message'>{modalMessage}</p>
+      <p><strong>{modalMessage}</strong></p>
       </Modal>
     </>
   );
