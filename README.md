@@ -6,16 +6,15 @@ This e-commerce store front end is crafted using React, designed to provide a se
 
 ## Key Features
 
-- **User Authentication:** Secure login and registration.
-- **Product Browsing:** Full CRUD operations on cart items  products.
-- **Shopping Cart Management:** A dynamic cart for each user.
-- **Responsive Design:** Utilizes Bootstrap for a mobile-friendly interface.
-- 
-- Real-time cart updates
-- Secure user authentication
-- Seamless navigation with React Router
-- State management across components
-- Modular and maintainable code structure
+- **User Authentication:** Implements secure login and registration processes for users.
+- **Product Browsing:** Allows users to view products, with full Create, Read, Update, and Delete (CRUD) operations on cart items.
+- **Shopping Cart Management:** Provides a dynamic and user-specific shopping cart experience.
+- **Responsive Design:** Adopts Bootstrap to ensure a mobile-friendly user interface that adapts to different screen sizes.
+- **Real-time Cart Updates:** The cart contents update in real-time, reflecting changes immediately without page reloads.
+- **Seamless Navigation:** Utilizes React Router for smooth and efficient navigation between different components without losing state.
+- **State Management:** Employs React state hooks to manage and persist state throughout the application, ensuring a consistent user experience.
+- **Modular Structure:** The codebase is structured in a modular fashion, facilitating ease of maintenance and scalability.
+
 
 ## Technologies Used
 
