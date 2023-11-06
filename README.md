@@ -77,10 +77,7 @@ Throughout the development of this project, several significant challenges were 
 
 ### Cart Item Count Management
 - **Issue:** The number of items in the cart was not updating in real-time after user actions such as login or logout. This issue was due to the count being tied to the `CartItems` component's mounting state.
-
-### Solution
-To achieve a dynamic and responsive cart item count:
-
+- **Solution:**
 - **State Lifting:** The cart item count state was lifted to `App.js` to allow for global access and manipulation across all components.
 - **Prop Passing:** The `fetchCartItems` function was passed as a prop to both `Login` and `Logout` components to trigger an update of the cart count upon user authentication changes.
 
