@@ -138,7 +138,7 @@ function App() {
           <Route path="/about-us" element={<AboutUs />} />
           <Route path="/cart" element={<CartItems cartItems={cartItems} setCartItems={setCartItems} fetchCartItems={fetchCartItems} setCartNr={setCartNr} />} />
           <Route path="/checkout" element={<Checkout />} />
-          <Route path="/profile" element={<Profile />} />
+          <Route path="/profile" element={<Profile fetchCartItems={fetchCartItems} />} />
           <Route path="/register" element={<Register />} />
         </Routes>
       </main>

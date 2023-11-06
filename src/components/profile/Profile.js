@@ -6,7 +6,7 @@ import Modal from '../modale/Modale.js';
 
 const herokuDb = "https://api.alerdo-ballabani.co.uk";
 
-const Profile = () => {
+const Profile = ({fetchCartItems}) => {
 
   const [isModalOpen, setModalOpen] = useState(false);
   const [modalMessage, setModalMessage] = useState("");
@@ -114,6 +114,7 @@ const Profile = () => {
         // navigate('/login');  // Redirect to home page
         setModalMessage(<>User deleted successfully</>);  // Updated line
         setModalOpen(true);
+        fetchCartItems()
       }
     } catch (error) {
       console.error('Error deleting profile:', error);
@@ -132,6 +133,7 @@ const Profile = () => {
   
       if (data.success) {
         localStorage.setItem('isLoggedIn', 'false');  // Set client-side state to logged out
+        fetchCartItems()
         navigate('/login');  // Redirect to home page
         console.log(response);
       } else {
