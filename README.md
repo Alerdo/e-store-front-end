@@ -1,70 +1,63 @@
-# Getting Started with Create React App
+# E-Commerce Store Front-End
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Project Overview
 
-## Available Scripts
+This e-commerce store front end is crafted using React, designed to provide a seamless and intuitive shopping experience from user authentication to product management and order processing.
 
-In the project directory, you can run:
+## Key Features
 
-### `npm start`
+- **User Authentication:** Secure login and registration.
+- **Product Browsing:** Full CRUD operations on products.
+- **Shopping Cart Management:** A dynamic cart for each user.
+- **Order Management:** Full control over order tracking and history.
+- **Responsive Design:** Utilizes Bootstrap for a mobile-friendly interface.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Technologies Used
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- **React.js:** Core framework for building the user interface.
+- **React Router:** Manages routing for the single-page application.
+- **Reactstrap:** Provides Bootstrap 4 components in React.
+- **Passport.js:** Handles user authentication.
+- **PostgreSQL:** (Assumed) Database for storing all persistent data.
 
-### `npm test`
+## Component Explanation
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### React Components
 
-### `npm run build`
+Utilize `useState` for state management within components and `useEffect` for side effects like data fetching or direct DOM manipulation.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### React Router Components
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- **useNavigate:** Enables programmatic navigation.
+- **Routes:** Renders the first matching route that is defined within it.
+- **Route:** Renders UI when the path matches the current location.
+- **NavLink:** A special version of `Link` that can be styled as "active".
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Reactstrap Components
 
-### `npm run eject`
+Bootstrap components such as `Dropdown`, `DropdownToggle`, `DropdownMenu`, `DropdownItem` for a rich, interactive UI.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Project Details
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Challenges and Solutions
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+During the development process, I encountered and resolved several key challenges:
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### Cart Functionality
+- **Issue:** Difficulty in adding items to the cart with the correct data structure.
+- **Solution:** Ensured the correct setup of routes and updated the database interaction logic.
 
-## Learn More
+### CORS and Session Configuration
+- **Issue:** CORS policy and session setup prevented proper communication between front and back end.
+- **Solution:** Configured CORS and session middleware in the Express app to allow for credential sharing.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Cart Item Count Management
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Challenge
+The cart item count did not update in real time after user login or logout, because it was tied to the `CartItems` component's mount state.
 
-### Code Splitting
+### Solution
+To ensure the cart item count is current and responsive to user actions:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- **State Lifting:** Moved the cart item count state to `App.js` for global management.
+- **Prop Passing:** Provided `fetchCartItems` function as a prop to `Login` and `Logout` routes. 
