@@ -7,9 +7,8 @@ This e-commerce store front end is crafted using React, designed to provide a se
 ## Key Features
 
 - **User Authentication:** Secure login and registration.
-- **Product Browsing:** Full CRUD operations on products.
+- **Product Browsing:** Full CRUD operations on cart items  products.
 - **Shopping Cart Management:** A dynamic cart for each user.
-- **Order Management:** Full control over order tracking and history.
 - **Responsive Design:** Utilizes Bootstrap for a mobile-friendly interface.
 
 ## Technologies Used
@@ -18,7 +17,7 @@ This e-commerce store front end is crafted using React, designed to provide a se
 - **React Router:** Manages routing for the single-page application.
 - **Reactstrap:** Provides Bootstrap 4 components in React.
 - **Passport.js:** Handles user authentication.
-- **PostgreSQL:** (Assumed) Database for storing all persistent data.
+- **PostgreSQL:** Database for storing all persistent data.
 
 ## Component Explanation
 
@@ -38,6 +37,8 @@ Utilize `useState` for state management within components and `useEffect` for si
 Bootstrap components such as `Dropdown`, `DropdownToggle`, `DropdownMenu`, `DropdownItem` for a rich, interactive UI.
 
 ## Project Details
+I 
+
 
 ## Challenges and Solutions
 
