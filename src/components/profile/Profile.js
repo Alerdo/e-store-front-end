@@ -6,7 +6,7 @@ import Modal from '../modale/Modale.js';
 
 const herokuDb = "https://api.alerdo-ballabani.co.uk";
 
-const Profile = ({fetchCartItems}) => {
+const Profile = ({fetchCartItems, setCartItems}) => {
 
   const [isModalOpen, setModalOpen] = useState(false);
   const [modalMessage, setModalMessage] = useState("");
@@ -133,7 +133,7 @@ const Profile = ({fetchCartItems}) => {
   
       if (data.success) {
         localStorage.setItem('isLoggedIn', 'false');  // Set client-side state to logged out
-        fetchCartItems()
+        setCartItems([])
         navigate('/login');  // Redirect to home page
         console.log(response);
       } else {

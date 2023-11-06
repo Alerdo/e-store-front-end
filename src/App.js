@@ -92,7 +92,7 @@ function App() {
   
       if (data.success) {
         // localStorage.setItem('isLoggedIn', 'false');  
-        fetchCartItems()
+        setCartItems([])
         navigate('/login');  // Redirect to home page
         console.log(response);
       } else {
@@ -145,7 +145,7 @@ function App() {
           <Route path="/about-us" element={<AboutUs />} />
           <Route path="/cart" element={<CartItems cartItems={cartItems} setCartItems={setCartItems} fetchCartItems={fetchCartItems} setCartNr={setCartNr} />} />
           <Route path="/checkout" element={<Checkout />} />
-          <Route path="/profile" element={<Profile fetchCartItems={fetchCartItems} />} />
+          <Route path="/profile" element={<Profile fetchCartItems={fetchCartItems} setCartItems={setCartItems} />} />
           <Route path="/register" element={<Register />} />
         </Routes>
       </main>
