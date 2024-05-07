@@ -115,6 +115,7 @@ const Profile = ({fetchCartItems, setCartItems}) => {
         setModalMessage(<>User deleted successfully</>);  // Updated line
         setModalOpen(true);
         setCartItems([])
+        // navigate('/login');
         
       }
     } catch (error) {

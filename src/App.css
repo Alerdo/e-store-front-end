@@ -5,6 +5,10 @@
     box-sizing: border-box;
 }
 
+html {
+  overflow-y: scroll; /* This forces the vertical scrollbar to always be visible */
+}
+
 
 header {
   height: 80px;
