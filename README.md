@@ -4,6 +4,13 @@
 
 This e-commerce store front end is crafted using React, designed to provide a seamless and intuitive shopping experience from user authentication to product management and order processing.
 
+### Live Project
+[View Live Project](https://www.shop.alerdo-ballabani.co.uk/) 
+
+## Back-End Repository
+For the corresponding front-end application that interacts with this front end, please visit our [![Back-End Repository](https://img.shields.io/badge/Back--End-Repository-blue)](https://github.com/Alerdo/e-commerce-store)
+
+
 ## Key Features
 
 - **User Authentication:** Implements secure login and registration processes for users.
