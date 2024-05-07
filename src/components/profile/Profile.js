@@ -111,10 +111,11 @@ const Profile = ({fetchCartItems, setCartItems}) => {
       console.log(data)
       if (data.message === 'User deleted successfully') {
         // alert(data.message)
-        // navigate('/login');  // Redirect to home page
+         // Redirect to home page
         setModalMessage(<>User deleted successfully</>);  // Updated line
         setModalOpen(true);
-        fetchCartItems()
+        setCartItems([])
+        
       }
     } catch (error) {
       console.error('Error deleting profile:', error);
