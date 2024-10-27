@@ -90,8 +90,9 @@ const Products = ({setCartItems, fetchCartItems, cartItems}) => {
   return (
     <>
       <h1 className="nextbuy-header">Welcome to <span className='next-buy'>NextBuy</span>!</h1>
-      <p className='intro'>Discover handpicked, high-quality products crafted with precision and love. Dive into a world where quality meets affordability.</p>
-      <div className="grid">
+      <p className='intro'>Experience my React-based platform in action, powered by a PostgreSQL database and a Node.js & Express backend using Sequelize ORM. </p>
+      <p className='intro'>Try logging in or creating an account to unlock the full functionality!</p>
+<div className="grid">
         {products.map(product => (
           <div key={product.id} className="card">
             {productQuantities[product.id] && 
