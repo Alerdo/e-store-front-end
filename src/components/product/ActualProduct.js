@@ -59,8 +59,8 @@ const Products = () => {
 
   return (
     <div>
-   <h1 class="nextbuy-header">Welcome to NextBuy!</h1>
-<p className='intro'>Discover handpicked, high-quality products crafted with precision and love. Dive into a world where quality meets affordability.</p>
+ <h1 class="nextbuy-header">Welcome to NextBuy!</h1>
+<p className='intro'>Explore an e-commerce experience where advanced algorithms curate high-quality, precision-crafted products tailored to your preferences. With seamless integration, secure transactions, and personalized recommendations, NextBuy redefines quality shopping, making premium products accessible to all. Create an account today to unlock a fully optimized, personalized shopping experience.</p>
 
       <div className="grid">
         {products.map(product => (
